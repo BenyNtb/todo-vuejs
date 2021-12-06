@@ -21,4 +21,4 @@ _ps : commencez par un_ `npm i`
 
 _ps2 : sass/scss loader est installé dans le projet_
 
-_ps3 : le 2ème bonus est très secondaire_
+_ps3 : le 2ème bonus est très secondaire_# todo-vuejs
