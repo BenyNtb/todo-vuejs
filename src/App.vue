@@ -1,5 +1,54 @@
 <template>
-  <div id="app">
+  <div>
+    <body>
+    <div class="wrapper">
+      <img src="./assets/bg-mobile-light.jpg" class="background" />
+      <header class="header">
+        <h1 class="header__title">Todo</h1>
+        <label class="header__lida">
+          <span class="header__icon"></span>
+          <input type="checkbox" />
+        </label>
+      </header>
+      <main class="content">
+        <form action="" class="todo">
+          <input
+            type="text"
+            class="todo__input"
+            placeholder="Create a new todo..."
+            maxlength="30"
+          />
+          <button class="todo__ghostButton"></button>
+
+          <div class="todo__content">
+            <div class="todo__items">
+              <!-- Here the items generated with Js -->
+            </div>
+            <div class="todo__options">
+              <p class="todo__left">0 items left</p>
+              <p class="todo__clear">Clear Completed</p>
+            </div>
+          </div>
+        </form>
+        <div class="categories">
+          <div class="categories__content">
+            <div class="category">
+              <input type="radio" name="category" class="all" />
+              <label>All</label>
+            </div>
+            <div class="category">
+              <input type="radio" name="category" class="active" />
+              <label>Active</label>
+            </div>
+            <div class="category">
+              <input type="radio" name="category" class="completed" />
+              <label>Completed</label>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
   </div>
 </template>
 
@@ -10,5 +59,368 @@ export default {
 }
 </script>
 
-<style lang="">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+h1 {
+  font-size: 2.6rem;
+}
+
+ul {
+  list-style: none;
+}
+
+input {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+p,
+li,
+input {
+  font-size: 1.4rem;
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  background: #fafafa;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: initial;
+      -ms-flex-pack: initial;
+          justify-content: initial;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.background {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 22rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.wrapper {
+  width: 85%;
+  margin: auto;
+  min-width: 30rem;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 5rem;
+}
+
+.header__title {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.8rem;
+}
+
+.header__lida {
+  display: inline-block;
+  position: relative;
+}
+
+.header__lida input {
+  cursor: pointer;
+  width: 2.6rem;
+  height: 2.9rem;
+  opacity: 0;
+}
+
+.header__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.todo {
+  width: 100%;
+  margin-top: 4rem;
+  -webkit-box-shadow: 0 1rem 1rem 0.3rem rgba(0, 0, 0, 0.061);
+          box-shadow: 0 1rem 1rem 0.3rem rgba(0, 0, 0, 0.061);
+}
+
+.todo__input {
+  border: none;
+  border-radius: 0.5rem;
+  width: 100%;
+  padding: 1.5rem;
+}
+
+.todo__content {
+  margin-top: 1.8rem;
+  border-radius: 0.5rem;
+  background: white;
+  color: #9394a5;
+}
+
+.todo__options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1.5rem;
+}
+
+.todo__clear {
+  cursor: pointer;
+}
+
+.todo__ghostButton {
+  display: none;
+}
+
+.categories {
+  color: #484b6a;
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+  border-radius: 0.5rem;
+  background: white;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  -webkit-box-shadow: 0 1rem 1rem 0.3rem rgba(0, 0, 0, 0.061);
+          box-shadow: 0 1rem 1rem 0.3rem rgba(0, 0, 0, 0.061);
+}
+
+.categories__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.category {
+  position: relative;
+  margin: 0.5rem 1rem;
+}
+
+.category input {
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.attribution {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-top: 3rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: #3e52a3;
+}
+
+.item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: initial;
+      -ms-flex-align: initial;
+          align-items: initial;
+  color: #484b6a;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.349);
+}
+
+.item__ok, .item__del {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.item__ok {
+  border: 1px solid #9394a5;
+}
+
+.item__del {
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.item__okIcon, .item__delIcon {
+  display: inline-block;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.item__okButton, .item__delButton {
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.item__text {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: auto;
+  padding: 0 2rem;
+  font-size: 1.8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.bg-ok-button {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1rem;
+}
+
+.bg-ok-button2 {
+  background: -webkit-gradient(linear, left top, right top, from(#57ddff), to(#c058f3));
+  background: linear-gradient(90deg, #57ddff 0%, #c058f3 100%);
+}
+
+.ok-text {
+  text-decoration: line-through;
+  color: #9394a5;
+}
+
+.selected-option {
+  font-weight: bold;
+}
+
+.dark-options {
+  background: #484b6a;
+  color: white;
+}
+
+.dark-text {
+  color: white;
+}
+
 </style>
