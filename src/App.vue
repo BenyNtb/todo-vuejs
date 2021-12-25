@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div id="app">
     <body>
     <div class="wrapper">
-      <img src="./assets/bg-mobile-light.jpg" class="background" />
+      <img src="./assets/images/bg-desktop-dark.jpg" class="background" />
       <header class="header">
         <h1 class="header__title">Todo</h1>
         <label class="header__lida">
@@ -11,25 +11,7 @@
         </label>
       </header>
       <main class="content">
-        <form action="" class="todo">
-          <input
-            type="text"
-            class="todo__input"
-            placeholder="Create a new todo..."
-            maxlength="30"
-          />
-          <button class="todo__ghostButton"></button>
-
-          <div class="todo__content">
-            <div class="todo__items">
-              <!-- Here the items generated with Js -->
-            </div>
-            <div class="todo__options">
-              <p class="todo__left">0 items left</p>
-              <p class="todo__clear">Clear Completed</p>
-            </div>
-          </div>
-        </form>
+        <TodoList/>
         <div class="categories">
           <div class="categories__content">
             <div class="category">
@@ -53,13 +35,20 @@
 </template>
 
 <script>
-
+import TodoList from './components/TodoList.vue'
 export default {
   name: 'App',
+  components: { TodoList },
+  data() {
+    return {
+      isCompleted: true,
+      checkedTask: []
+    };
+  },
 }
 </script>
 
-<style>
+<style scoped>
 * {
   margin: 0;
   padding: 0;
@@ -67,10 +56,6 @@ export default {
           box-sizing: border-box;
 }
 
-html {
-  font-size: 62.5%;
-  font-family: "Josefin Sans", sans-serif;
-}
 
 h1 {
   font-size: 2.6rem;
@@ -88,12 +73,13 @@ p,
 li,
 input {
   font-size: 1.4rem;
+  list-style: none;
 }
 
-body {
+/* body {
   min-height: 100vh;
   position: relative;
-  background: #fafafa;
+  background: #1A1A26;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -113,7 +99,9 @@ body {
           align-items: center;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-}
+  font-size: 62.5%;
+  font-family: "Josefin Sans", sans-serif;
+} */
 
 .background {
   z-index: -1;
@@ -153,6 +141,7 @@ body {
   color: white;
   text-transform: uppercase;
   letter-spacing: 0.8rem;
+  z-index: 1;
 }
 
 .header__lida {
@@ -173,6 +162,7 @@ body {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+content: url("./assets/images/icon-moon.svg");
 }
 
 .content {
@@ -422,5 +412,4 @@ body {
 .dark-text {
   color: white;
 }
-
 </style>
